@@ -8,10 +8,10 @@ from operator import itemgetter
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--root_dir", default=None, type=str, required=True,
+    parser.add_argument("--root_dir", default='release', type=str, required=False,
                         help="The root directory of the raw WebSRC dataset; The output SQuAD-style json file will also"
                              "be placed here.")
-    parser.add_argument("--version", default=None, type=str, required=True,
+    parser.add_argument("--version", default='websrc1.0', type=str, required=False,
                         help="The version of the generating dataset, which will also be the name of the json file.")
     parser.add_argument("--suffix", default="", type=str,
                         help="Other suffix to distinguish different dataset.")

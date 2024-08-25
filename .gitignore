@@ -1,3 +1,6 @@
+#data dirs
+markuplm/examples/fine_tuning/run_websrc/release
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

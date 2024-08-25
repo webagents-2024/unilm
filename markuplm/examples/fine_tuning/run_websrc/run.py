@@ -349,16 +349,16 @@ def main():
     parser = argparse.ArgumentParser()
 
     # Required parameters
-    parser.add_argument("--train_file", default=None, type=str, required=True,
+    parser.add_argument("--train_file", default="release/websrc1.0_train_.json", type=str, required=False,
                         help="json for training. E.g., train-v1.1.json")
-    parser.add_argument("--predict_file", default=None, type=str, required=True,
+    parser.add_argument("--predict_file", default='release/websrc1.0_dev_.json', type=str, required=False,
                         help="json for predictions. E.g., dev-v1.1.json or test-v1.1.json")
-    parser.add_argument("--root_dir", default=None, type=str, required=True,
+    parser.add_argument("--root_dir", default="release", type=str, required=False,
                         help="the root directory of the raw WebSRC dataset, which contains the HTML files.")
-    parser.add_argument("--model_name_or_path", default=None, type=str, required=True,
+    parser.add_argument("--model_name_or_path", default='microsoft/markuplm-large', type=str, required=False,
                         help="Path to pretrained model or model identifier from huggingface.co/models")
-    parser.add_argument("--output_dir", default=None, type=str, required=True,
-                        help="The output directory where the model checkpoints and predictions will be written.")
+    parser.add_argument("--output_dir", default='output', type=str, required=False,
+                        help="The preprocess directory where the model checkpoints and predictions will be written.")
 
     # Other parameters
     parser.add_argument("--config_name", default="", type=str,
@@ -419,10 +419,10 @@ def main():
                         help="Total number of training epochs to perform.")
     parser.add_argument("--max_steps", default=-1, type=int,
                         help="If > 0: set total number of training steps to perform. Override num_train_epochs.")
-    parser.add_argument("--warmup_ratio", default=0.0, type=float,
+    parser.add_argument("--warmup_ratio", default=0.1, type=float,
                         help="RT.")
     parser.add_argument("--n_best_size", default=20, type=int,
-                        help="The total number of n-best predictions to generate in the nbest_predictions.json output "
+                        help="The total number of n-best predictions to generate in the nbest_predictions.json preprocess "
                              "file.")
 
     parser.add_argument('--logging_steps', type=int, default=10,
@@ -432,7 +432,7 @@ def main():
     parser.add_argument("--no_cuda", action='store_true',
                         help="Whether not to use CUDA when available")
     parser.add_argument('--overwrite_output_dir', action='store_true',
-                        help="Overwrite the content of the output directory")
+                        help="Overwrite the content of the preprocess directory")
     parser.add_argument('--overwrite_cache', action='store_true',
                         help="Overwrite the cached training and evaluation sets")
     parser.add_argument('--save_features', type=bool, default=True,
